@@ -25,8 +25,8 @@ MongoClient.connect('mongodb://localhost:27017/TodoApp', (err, db) => {
 	// })
 
 	
-	db.collection('Users').find({name: 'Bauer'}).toArray().then((arr) => {
-		console.log(JSON.stringify(arr, 0, 2))
+	db.collection('Users').find({name: 'Bauer'}).toArray().then((docs) => {
+		console.log(JSON.stringify(docs, 0, 2))
 	})
 
 	// db.close();
