@@ -11,19 +11,40 @@ const express = require('express');
 const app = express();
 const bodyParser = require('body-parser'); // turns json into object
 
-app.use(bodyParser.json()); // turns req.body into object
+app.use(bodyParser.json()); // turns req.body into object 
+// ... so you can grab req.body.text, etc
 
-app.post('/todos', (req, res) => {
+
+app.post('/todos', (req, res)=>{
 	const todo = new Todo({
 		text: req.body.text
-	});
+	})
 
-	todo.save().then((doc) => {
-		res.send(doc)
+	todo.save() // .save() returns a promise...
+	.then((doc) => {
+		res.send(doc);
 	}, (e) => {
 		res.status(400).send(e);
 	})
+
 })
+
+
+module.exports = {
+	app,
+};
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
