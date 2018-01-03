@@ -5,9 +5,10 @@ const { MongoClient, ObjectID } = require('mongodb');
 
 MongoClient.connect('mongodb://localhost:27017/TodoApp', (err, db) => {
 	if(err){
-		return console.log('unable to connect to mongodb server'); //using 'return' so that it ends the function here if there is an error
+		return console.log('unable to connect to mongodb server', err); //using 'return' so that it ends the function here if there is an error
 	}
 	console.log('connected to MongoDB server 😁')
+
 
 	// db.collection('Todos').insertOne({
 	// 	text: 'this is what i want to do',
